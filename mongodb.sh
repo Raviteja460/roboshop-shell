@@ -14,10 +14,10 @@ echo "script stareted executing at $TIMESTAMP" &>> $LOGFILE
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2 ... $G SUCCESS $N"
+        echo -e "$2 ... $G FAILED $N"
         exit 1
     else
-        echo -e "$2 ... $G FAILED $N"
+        echo -e "$2 ... $G SUCCESS $N"
     fi
 }
 
@@ -29,7 +29,7 @@ else
     echo "You are root user"
 fi # fi means reverse of if, indicating condition end
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+cp mongo.repo /etc/yum.repos.d/ &>> $LOGFILE
 
 VALIDATE $? "Copied MongoDB Repo"
 
